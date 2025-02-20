@@ -1,0 +1,20 @@
+networks:
+  emp-network:
+
+services:
+  simulation:
+    build:
+      context: .
+      dockerfile: ros2.Dockerfile
+    container_name: px4_ros2
+    tty: true
+    volumes:
+      - ./:/src/aerial_robotics/:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      # - ./entrypoint.sh/:/src/PX4-Autopilot/entrypoint.sh
+    privileged: true
+    networks:
+      - emp-network
+    environment:
+      - DISPLAY=:1
+    # entrypoint: ["/bin/bash", "-c", "chmod +x /src/aerial_robotics/entrypoint.sh && /src/aerial_robotics/entrypoint.sh"]

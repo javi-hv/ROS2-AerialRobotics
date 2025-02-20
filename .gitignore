@@ -1,0 +1,8 @@
+# Ignore PX4-Autopilot directory
+PX4-Autopilot/
+
+# Ignore log build install directories
+multirotor_ws/log
+multirotor_ws/build
+multirotor_ws/install
+multirotor_ws/src/px4_msgs
